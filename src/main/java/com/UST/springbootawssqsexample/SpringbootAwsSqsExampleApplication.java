@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpringbootAwsSqsExampleApplication {
 
 
-//	Logger logger= LoggerFactory.getLogger(SpringbootAwsSqsExampleApplication.class);
+	Logger logger= LoggerFactory.getLogger(SpringbootAwsSqsExampleApplication.class);
 
 	@Autowired
 	private QueueMessagingTemplate queueMessagingTemplate;
@@ -33,12 +33,12 @@ public class SpringbootAwsSqsExampleApplication {
 		queueMessagingTemplate.send(endpoint, MessageBuilder.withPayload(message).build());
 	}
 
-//	@SqsListener("javafullstack-queue")
-//	public void loadMessageFromSQS(String message)  {
-//		logger.info("message from SQS Queue {}",message);
-//
-//
-//	}
+	@SqsListener("javafullstack-queue")
+	public void loadMessageFromSQS(String message)  {
+		logger.info("message from SQS Queue {}",message);
+
+
+	}
 
 
 	public static void main(String[] args) {
